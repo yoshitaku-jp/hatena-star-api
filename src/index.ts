@@ -1,5 +1,6 @@
-function hello(name: string): string {
-  return `Hello, ${name}!`;
-}
+import { Client } from "./client";
 
-console.log(hello("TypeScript"));
+export { Client };
+
+const client = new Client();
+client.hello();
