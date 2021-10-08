@@ -18,6 +18,7 @@
   "homepage": "https://github.com/yoshitaku-jp/hatena-star-api#readme",
   "devDependencies": {
     "@types/node": "^12.20.28",
+    "ts-node": "^10.2.1",
     "typescript": "*"
   }
 }
