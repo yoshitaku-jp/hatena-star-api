@@ -24,5 +24,8 @@
     "ts-node-dev": "^1.1.8",
     "typescript": "*"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
 }
