@@ -1,6 +1,7 @@
 import { Client } from "./client";
 import { Star } from "./star";
 const argv = require("minimist")(process.argv.slice(2));
+const chalk = require("chalk");
 
 console.log(argv);
 
@@ -17,8 +18,10 @@ async function main() {
     const starsDetail = await star.getAllStarDetail(body);
     console.log(starsDetail);
   } else if (argv["c"]) {
-    const redStars = await star.getColorStar(body, argv.c);
-    console.log(redStars);
+    const color = argv.c;
+    const chalkColor = chalk.keyword(color);
+    const colorStars = await star.getColorStar(body, color);
+    console.log(chalkColor(colorStars));
   }
 }
 
