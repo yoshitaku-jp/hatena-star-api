@@ -1,21 +1,25 @@
 import { Client } from "./client";
 import { Star } from "./star";
+const argv = require("minimist")(process.argv.slice(2));
 
-export { Client };
+console.log(argv);
 
 async function main() {
   const client = new Client();
-  const body = await client.getStar();
+  const body = await client.getStar(argv._);
 
   const star = new Star();
-  const stars = await star.getAllStar(body);
-  console.log(stars);
 
-  const starsDetail = await star.getAllStarDetail(body);
-  console.log(starsDetail);
-
-  const redStars = await star.getColorStar(body);
-  console.log(redStars);
+  if (argv["a"]) {
+    const stars = await star.getAllStar(body);
+    console.log(stars);
+  } else if (argv["d"]) {
+    const starsDetail = await star.getAllStarDetail(body);
+    console.log(starsDetail);
+  } else if (argv["c"]) {
+    const redStars = await star.getColorStar(body, argv.c);
+    console.log(redStars);
+  }
 }
 
 main();
