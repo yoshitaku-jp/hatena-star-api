@@ -10,6 +10,10 @@ async function main() {
   const star = new Star();
   const stars = await star.getAllStar(body);
   console.log(stars);
+
+  const starsDetail = await star.getAllStarDetail(body);
+  console.log(starsDetail);
+
   const redStars = await star.getColorStar(body);
   console.log(redStars);
 }
