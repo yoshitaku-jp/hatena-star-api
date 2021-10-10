@@ -7,10 +7,8 @@ class Client {
    * name
    *
    */
-  public async getStar(): Promise<string> {
-    const res = await got.get(
-      Client.URL + "https://yoshitaku-jp.hatenablog.com/"
-    );
+  public async getStar(targetURL: string): Promise<string> {
+    const res = await got.get(Client.URL + targetURL);
     return res.body.toString();
   }
 }
