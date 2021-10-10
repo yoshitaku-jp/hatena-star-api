@@ -1,4 +1,4 @@
-import request from "request";
+import got from "got";
 
 class Client {
   static readonly URL: string = "http://s.hatena.ne.jp/blog.json?uri=";
@@ -7,18 +7,11 @@ class Client {
    * name
    *
    */
-  public getStar(): void {
-    request.get(
-      Client.URL + "https://yoshitaku-jp.hatenablog.com/",
-      function (err, res, body) {
-        if (err) {
-          console.log("Error: " + err.message);
-          return;
-        }
-        console.log(body);
-        return body;
-      }
+  public async getStar(): Promise<string> {
+    const res = await got.get(
+      Client.URL + "https://yoshitaku-jp.hatenablog.com/"
     );
+    return res.body.toString();
   }
 }
 export { Client };
