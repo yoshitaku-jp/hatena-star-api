@@ -13,4 +13,4 @@ class Star {
     return colorStartCount;
   }
 }
-export { Star };
+module.exports = Star;
