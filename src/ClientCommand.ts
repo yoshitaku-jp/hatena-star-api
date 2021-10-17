@@ -1,15 +1,12 @@
-import got from "got";
+const got = require("got");
 
-class Client {
+class ClientCommand {
   static readonly URL: string = "http://s.hatena.ne.jp/blog.json?uri=";
 
-  /**
-   * name
-   *
-   */
   public async getStar(targetURL: string): Promise<string> {
-    const res = await got.get(Client.URL + targetURL);
+    const res = await got.get(ClientCommand.URL + targetURL);
     return res.body.toString();
   }
 }
-export { Client };
+
+module.exports = ClientCommand;
