@@ -6,6 +6,13 @@ const argv = require("minimist")(process.argv.slice(2));
 const chalk = require("chalk");
 
 async function main() {
+  if (argv._.length == 0) {
+    console.log(
+      "The argument does not exist. Please specify the URL of the Hatena blog you want to check."
+    );
+    return;
+  }
+
   const client = new Client();
   const body = await client.getStar(argv._);
 
