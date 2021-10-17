@@ -1,5 +1,7 @@
-import { Client } from "./client";
-import { Star } from "./star";
+#!/usr/bin/env node
+
+const Client = require("./ClientCommand");
+const Star = require("./star");
 const argv = require("minimist")(process.argv.slice(2));
 const chalk = require("chalk");
 
