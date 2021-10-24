@@ -22,6 +22,12 @@ async function main() {
     const stars = await star.getAllStar(body);
     console.log("You have " + stars + " stars");
   } else if (argv["c"]) {
+    if (argv["c"] == true) {
+      console.log(
+        "-c option does not specify a color. Please specify yellow, green, red, or blue in the -c option."
+      );
+      return;
+    }
     const color = argv.c;
     const chalkColor = chalk.keyword(color);
     const colorStars = await star.getColorStar(body, color);
