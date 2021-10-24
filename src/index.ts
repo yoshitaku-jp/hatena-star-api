@@ -31,6 +31,10 @@ async function main() {
     const color = argv.c;
     const chalkColor = chalk.keyword(color);
     const colorStars = await star.getColorStar(body, color);
+    if (Number.isNaN(colorStars)) {
+      console.log(chalkColor(color) + " color had no star.");
+      return;
+    }
     console.log("You have " + chalkColor(colorStars) + " " + color + " stars");
   } else {
     const stars = await star.getAllStar(body);
